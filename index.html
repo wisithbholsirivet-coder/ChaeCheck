@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skincare Routine Finder</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fcfbfa;
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            border-bottom: 1px solid #f0ede9;
+        }
+
+        .brand {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #8c7a6b;
+            letter-spacing: 0.5px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            color: #423932;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            color: #8a817c;
+            font-size: 1.1rem;
+        }
+
+        .main-container {
+            max-width: 1000px;
+            margin: 0 auto padding 20px;
+            padding: 0 20px 60px 20px;
+        }
+
+        .filter-section {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #f0ede9;
+            box-shadow: 0 4px 20px rgba(140, 122, 107, 0.05);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .filter-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #5c534c;
+            font-weight: 600;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .skin-btn {
+            background-color: #ffffff;
+            border: 2px solid #e6e1da;
+            color: #6e645e;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .skin-btn:hover {
+            border-color: #a89685;
+            background-color: #faf9f7;
+            transform: translateY(-1px);
+        }
+
+        .skin-btn.active {
+            background-color: #8c7a6b;
+            border-color: #8c7a6b;
+            color: white;
+            box-shadow: 0 4px 12px rgba(140, 122, 107, 0.2);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #f0ede9;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(140, 122, 107, 0.08);
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #f2eeea;
+            color: #8c7a6b;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            color: #423932;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .product-desc {
+            font-size: 0.95rem;
+            color: #8a817c;
+            margin-bottom: 15px;
+        }
+
+        .ingredients {
+            border-top: 1px dashed #e6e1da;
+            padding-top: 15px;
+            font-size: 0.85rem;
+            color: #9e948e;
+        }
+
+        .ingredients strong {
+            color: #6e645e;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="brand">✨ SKIN ROUTINE</div>
+    </nav>
+
+    <header class="hero">
+        <h1>ค้นหาสกินแคร์ที่ใช่สำหรับผิวคุณ</h1>
+        <p>เลือกสภาพผิวของคุณด้านล่าง ระบบจะช่วยคัดกรองส่วนผสมและผลิตภัณฑ์ที่เหมาะสมให้ทันที</p>
+    </header>
+
+    <main class="main-container">
+        <section class="filter-section">
+            <div class="filter-title">คุณมีสภาพผิวแบบไหน?</div>
+            <div class="btn-group">
+                <button class="skin-btn active">ทั้งหมด</button>
+                <button class="skin-btn">ผิวมัน (Oily)</button>
+                <button class="skin-btn">ผิวแห้ง (Dry)</button>
+                <button class="skin-btn">ผิวเป็นสิว (Acne Prone)</button>
+            </div>
+        </section>
+
+        <section class="products-grid">
+            
+            <div class="product-card">
+                <span class="tag">Moisturizer</span>
+                <div class="product-name">Gel Cream Hydration</div>
+                <p class="product-desc">เจลครีมเนื้อบางเบา ซึมไว ไม่เหนอะหนะ ช่วยเติมความชุ่มชื้นโดยไม่ทำให้หน้ามันเพิ่ม</p>
+                <div class="ingredients">
+                    <strong>สารสกัดเด่น:</strong> Hyaluronic Acid, Centella
+                </div>
+            </div>
+
+            <div class="product-card">
+                <span class="tag">Serum</span>
+                <div class="product-name">BHA Clarifying Serum</div>
+                <p class="product-desc">เซรั่มผลัดเซลล์ผิวอย่างอ่อนโยน ช่วยลดการอุดตันในรูขุมขนและควบคุมความมัน</p>
+                <div class="ingredients">
+                    <strong>สารสกัดเด่น:</strong> Salicylic Acid (BHA) 2%, Zinc PCA
+                </div>
+            </div>
+
+            <div class="product-card">
+                <span class="tag">Cleanser</span>
+                <div class="product-name">Gentle Hydrating Wash</div>
+                <p class="product-desc">เจลล้างฟองนุ่มสูตรอ่อนโยน ไม่ทำให้ผิวแห้งตึงหลังล้าง ช่วยรักษาเกราะป้องกันผิว</p>
+                <div class="ingredients">
+                    <strong>สารสกัดเด่น:</strong> Ceramides, Glycerin
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+</body>
+</html>
